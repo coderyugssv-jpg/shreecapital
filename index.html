@@ -178,54 +178,80 @@ z-index:2000;
 
 /* ===== MOBILE NAVBAR ===== */
 
-@media (max-width:900px){
+@media (max-width: 900px) {
+  /* Position toggle icon clearly */
+  .menu-toggle {
+    display: block;
+    position: relative; /* Changed from fixed for better alignment */
+    font-size: 28px;
+    transition: transform 0.3s ease;
+  }
 
-.menu-toggle{
-display:block;
-position:fixed;
-top:18px;
-right:24px;
-}
+  .nav-cta {
+    display: none;
+  }
 
-.nav-cta{
-display:none;
-}
+  /* The Full Screen Overlay */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    
+    /* Elegant Gradient Background */
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, #f0f4ff 100%);
+    backdrop-filter: blur(15px);
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    
+    /* Start hidden and slightly off-screen */
+    transform: translateX(100%); 
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    z-index: 1500;
+  }
 
-.nav-menu{
+  .nav-menu.active {
+    transform: translateX(0);
+  }
 
-position:fixed;
+  /* Link Styling */
+  .nav-menu li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+  }
 
-top:0;
-left:0;
+  /* When menu is active, fade links in one by one */
+  .nav-menu.active li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Staggered animation delay for links */
+  .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+  .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+  .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+  .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+  .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
 
-width:100%;
-height:100vh;
+  .nav-menu a {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #1a365d;
+  }
 
-background:white;
-
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
-gap:35px;
-
-transform:translateY(-100%);
-transition:0.4s ease;
-
-}
-
-.nav-menu.active{
-transform:translateY(0);
-}
-
-.nav-menu a{
-font-size:22px;
-}
-
-.mobile-cta{
-display:inline-block;
-}
-
+  .mobile-cta {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 15px 35px;
+    font-size: 18px;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+  }
 }
 
   /* ===== HERO ===== */
