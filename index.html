@@ -598,40 +598,40 @@ display:inline-block;
   }
 
   /* --- MODERN GLASSMORPHISM DESIGN --- */
+/* --- MODERN LIGHT MODE DESIGN --- */
 
 .pricing-section {
   padding: 100px 5%;
-  background: #0f172a; /* Deep Navy Night */
+  background: #ffffff; /* Clean White */
   font-family: 'Poppins', sans-serif;
-  color: #ffffff;
+  color: #1e293b; /* Slate Dark */
   overflow: hidden;
   position: relative;
 }
 
-/* Floating Animation Background */
+/* Soft Decorative Background Elements */
 .pricing-section::before {
   content: '';
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
   top: -100px;
-  left: -100px;
-  animation: float 10s infinite alternate;
-}
-
-@keyframes float {
-  from { transform: translate(0, 0); }
-  to { transform: translate(100px, 50px); }
+  right: -100px;
+  z-index: 0;
 }
 
 .section-title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
-  background: linear-gradient(90deg, #fff, #94a3b8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #0f172a;
   margin-bottom: 1rem;
+}
+
+.section-sub {
+  color: #64748b;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .pricing-grid {
@@ -639,53 +639,52 @@ display:inline-block;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   margin-top: 60px;
-  perspective: 1000px;
+  position: relative;
+  z-index: 1;
 }
 
-/* The Glass Card */
+/* The Premium Light Card */
 .pricing-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 24px;
   padding: 40px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
-  position: relative;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .pricing-card:hover {
-  transform: translateY(-15px) scale(1.02);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform: translateY(-12px);
+  border-color: #3b82f6;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Featured (Gold) Highlight */
+/* Featured (Gold/Best Accuracy) Highlight */
 .pricing-card.featured {
-  background: rgba(212, 175, 55, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+  background: #fffcf5; /* Very soft gold tint */
+  border: 2px solid #d4af37;
 }
 
-.pricing-card.featured::after {
-  content: 'MOST POPULAR';
+.popular-ribbon {
   position: absolute;
   top: -15px;
-  right: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   background: linear-gradient(90deg, #d4af37, #f1c40f);
-  color: #000;
-  padding: 4px 15px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 800;
+  color: #ffffff;
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
 }
 
 .plan-price {
   font-size: 3rem;
   font-weight: 800;
+  color: #0f172a;
   margin: 15px 0;
   display: flex;
   align-items: baseline;
@@ -694,7 +693,8 @@ display:inline-block;
 
 .plan-price .period {
   font-size: 1rem;
-  color: #94a3b8;
+  color: #64748b;
+  font-weight: 400;
 }
 
 .plan-features {
@@ -706,17 +706,18 @@ display:inline-block;
 .plan-features li {
   margin-bottom: 15px;
   font-size: 15px;
-  color: #cbd5e1;
+  color: #475569;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.plan-features li .icon {
-  color: #3b82f6; /* Electric Blue */
+.plan-features li.disabled {
+  color: #cbd5e1;
+  text-decoration: line-through;
 }
 
-/* Interactive Buttons */
+/* Buttons */
 .btn-plan {
   padding: 16px;
   border-radius: 12px;
@@ -725,77 +726,102 @@ display:inline-block;
   text-align: center;
   transition: 0.3s;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .btn-plan.filled {
   background: #3b82f6;
-  color: #fff;
+  color: #ffffff;
 }
 
 .btn-plan.gold {
   background: #d4af37;
-  color: #000;
+  color: #ffffff;
 }
 
 .btn-plan.outline {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
 }
 
 .btn-plan:hover {
-  filter: brightness(1.2);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  transform: scale(1.03);
+  filter: brightness(1.05);
 }
 
-/* Modern Comparison Table */
+/* Modern Comparison Table - Light */
 .long-term-container {
-  margin-top: 100px;
-  padding: 20px;
-  background: rgba(15, 23, 42, 0.8);
+  margin-top: 80px;
+  padding: 40px;
+  background: #f8fafc;
   border-radius: 30px;
+  border: 1px solid #e2e8f0;
+}
+
+.table-title {
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .table-wrapper {
   overflow-x: auto;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.02);
 }
 
 .comparison-table th {
-  padding: 25px;
+  padding: 20px;
   text-align: left;
-  background: rgba(255, 255, 255, 0.05);
-  color: #3b82f6;
+  background: #f1f5f9;
+  color: #334155;
+  font-weight: 600;
 }
 
 .comparison-table td {
-  padding: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 18px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
 }
 
 .deal-cell {
-  color: #2ecc71;
+  color: #16a34a;
   font-weight: 700;
-  background: rgba(46, 204, 113, 0.05);
+  background: #f0fdf4;
 }
 
-/* Reveal on Scroll Animation */
+/* Animation Classes */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(30px);
   transition: all 0.8s ease-out;
 }
 
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+.pulse-animation {
+  animation: soft-pulse 2s infinite ease-in-out;
+}
+
+@keyframes soft-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pricing-section { padding: 60px 20px; }
+  .pricing-card.featured { transform: scale(1); margin-top: 20px; }
 }
 
 /* Mobile Responsiveness */
