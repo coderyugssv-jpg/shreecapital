@@ -1883,16 +1883,25 @@ setInterval(updateTicker, 400);
 const toggle = document.getElementById("menuToggle");
 const menu = document.getElementById("navMenu");
 
-toggle.addEventListener("click", function(){
+// Toggle menu
+toggle.addEventListener("click", function () {
+  menu.classList.toggle("active");
 
-menu.classList.toggle("active");
+  if (menu.classList.contains("active")) {
+    toggle.innerHTML = "✕";
+  } else {
+    toggle.innerHTML = "☰";
+  }
+});
 
-if(menu.classList.contains("active")){
-toggle.innerHTML = "✕";
-}else{
-toggle.innerHTML = "☰";
-}
+// Close menu on link click
+const links = menu.querySelectorAll("a");
 
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    menu.classList.remove("active");
+    toggle.innerHTML = "☰"; // reset icon
+  });
 });
 
 </script>
